@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> DZ Finwise Accounting and Tax Services (Pty) Ltd </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: 3px solid #ff5722;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #ff5722;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .logo-icon::after {
+            content: '';
+            width: 8px;
+            height: 25px;
+            background: #1a365d;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1a365d;
+            letter-spacing: 2px;
+        }
+
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff5722;
+        }
+
+        .dropdown::after {
+            content: ' ▼';
+            font-size: 0.7rem;
+        }
+
+        .get-quote-btn {
+            background: #ff5722;
+            color: white !important;
+            padding: 0.9rem 2.2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .get-quote-btn:hover {
+            background: #e64a19;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+        }
+
+        .hero {
+            background: linear-gradient(to right, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.97) 50%, rgba(255,255,255,0.5) 100%), 
+                        url('https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&q=80');
+            background-size: cover;
+            background-position: right center;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 4rem;
+            width: 100%;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            color: #1a365d;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .hero-text h1 .highlight {
+            color: #ff5722;
+            display: block;
+        }
+
+        .hero-text p {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #ff5722;
+            color: white;
+            padding: 1.1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #e64a19;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 87, 34, 0.3);
+        }
+
+        .services {
+            background: #f8f9fa;
+            padding: 6rem 4rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: #1a365d;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-title h2 span {
+            color: #ff5722;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: #fff5f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 2rem;
+        }
+
+        .service-card h3 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .about {
+            padding: 6rem 4rem;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            color: #1a365d;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        .about-content h2 span {
+            color: #ff5722;
+        }
+
+        .about-content p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact {
+            background: #1a365d;
+            color: white;
+            padding: 6rem 4rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .contact > p {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .contact-item h3 {
+            color: #ff5722;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #0f1f3d;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1200px) {
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 968px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav, .hero-content, .services, .about, .contact {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <div class="logo-name"> DZ Finwise</div>
+                    <div class="logo-tagline">Accounting and Tax Services (Pty) Ltd (DZ Finwise)</div>
+                       
+                </div>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="quote.html"  class="get-quote-btn">Get A Quote</a></li>
+               
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+               <h1><span class="highlight">Reliable,</span> Compliant, And High-Quality Accounting &amp; Tax Solutions</h1> 
+    <p>DZ permanent Finwise Accounting and Tax Services (Pty) Ltd objectives is to meet and exceed every expectation for service delivery..</p>
+                <a href="#services" class="hero-btn">View Project</a>
+            </div>
+        </div>
+     </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span>Services</span></h2>
+                <p>Comprehensive accounting and tax solutions tailored to your business needs</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Bookkeeping & VAT</h3>
+                    <p>Professional bookkeeping services, VAT submissions, and payroll management to keep your financial records accurate and up-to-date.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Financial Statements</h3>
+                    <p>Drafting comprehensive annual financial statements and management accounts that provide clear insights into your business performance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Tax Services</h3>
+                    <p>Expert tax compliance, tax clearance certificates, and SARS submissions ensuring you meet all regulatory requirements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Company Registration</h3>
+                    <p>Complete company registration services, CIPC annual returns, and ongoing compliance management for your business.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Business Advisory</h3>
+                    <p>Strategic guidance on cash flow management, business plans, risk assessment, and financial forecasting to drive growth.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3>Training & Workshops</h3>
+                    <p>Empowering SMMEs and business owners through professional training, workshops, and information sharing sessions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+               <h2>About <span>Our Company</span></h2>
+
+<h3>Our Mission</h3>
+<p>DZ Finwise Accounting and Tax Services (Pty) Ltd is an Auditing and Accounting Practice that serves as a driving force within the business community by promoting Sustainable Development — development that meets the needs of the present without compromising the ability of future generations to meet their own needs.</p>
+
+<p>We achieve this mission by delivering high-quality professional services in compliance with South African regulatory requirements, including SARS and CIPC, while going beyond traditional accounting through:</p>
+
+<ul style="text-align:left; max-width:800px; margin: 0 auto 2rem; line-height:1.8; color:#666;">
+    <li>Providing professional auditing, accounting, tax, and advisory services to South African entities.</li>
+    <li>Offering training, development programmes, and internal audits to SMMEs in support of SHEQ compliance.</li>
+    <li>Empowering businesses through tailored financial solutions, mentorship, and capacity building.</li>
+</ul>
+
+<h3>Our Vision</h3>
+<p>DZ Finwise envisions becoming the Auditing and Accounting Practice of choice by making a meaningful impact on businesses and communities through education, mentorship, and professional excellence.</p>
+
+<ul style="text-align:left; max-width:800px; margin: 0 auto; line-height:1.8; color:#666;">
+    <li>Providing training and mentorship to young, passionate, and top-achieving future accountants from the Emalahleni community, including matriculants and newly qualified graduates.</li>
+    <li>Facilitating training programmes, workshops, information-sharing sessions, and business forums for the broader business community, including youth, women-owned enterprises, and NPOs.</li>
+    <li>Delivering high-quality professional financial, tax, and related services that support sustainable business growth.</li>
+</ul>
+
+
+ </div>
+    </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Ready to transform your business? Get in touch with us today.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>zulisi002@gmail.com  </p>
+                </div>
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p> +27 83 529 8380 /+27 72 068 1410 </p>
+                </div>
+                <div class="contact-item">
+                    <h3>Address</h3>
+                    <p>27 OR Tambo Road<br>Die Heuwel <br>EMALAHLENI <br>1035 </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+<p>&copy; 2026 DZ Finwise Accounting and Tax Services  (Pty) Ltd (DZ Finwise). All rights reserved. | Website</p>
+    </footer>
+</body>
+</html>
